@@ -5,7 +5,7 @@ on:
       - trunk
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
-
+permissions: {}
 jobs:
   release:
     permissions:
