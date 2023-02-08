@@ -1,5 +1,11 @@
 # create-lkjh
 
+## 0.2.2
+
+### Patch Changes
+
+- 32d4d5c: Removed Tarball
+
 ## 0.2.1
 
 ### Patch Changes
