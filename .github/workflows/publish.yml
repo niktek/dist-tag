@@ -42,7 +42,6 @@ jobs:
           EOF
           pnpm package
           cd package
-          pnpm pack
           npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
