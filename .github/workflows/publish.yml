@@ -5,20 +5,15 @@ on:
       - trunk
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
-permissions: {}
 jobs:
   release:
-    permissions:
-      contents: write
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: pnpm/action-setup@v2
-        with:
-          version: 7
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -33,7 +28,6 @@ jobs:
         with:
           publish: pnpm release
           commit: "ci(changesets): version packages"
-          setupGitUser: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
