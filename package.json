@@ -15,7 +15,9 @@
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"build:jss": "node ./scripts/generate-jss.js"
+		"build:jss": "node ./scripts/generate-jss.js",
+		"release": "changeset publish",
+		"release:dev": "changeset publish --tag dev"
 	},
 	"repository": {
 		"type": "git",
