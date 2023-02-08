@@ -26,16 +26,19 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Packaging
-        run: pnpm package
-
       - name: Create release Pull Request or Publish to NPM
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm release
-          cwd: package
+          publish: pnpm version
           commit: "ci(changesets): version packages"
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Packaging
+        run: |
+          pnpm package
+          cd package
+          pnpm package
+          npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

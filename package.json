@@ -16,7 +16,7 @@
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
 		"build:jss": "node ./scripts/generate-jss.js",
-		"release": "changeset publish",
+		"version": "changeset version",
 		"release:dev": "changeset publish --tag dev"
 	},
 	"repository": {
