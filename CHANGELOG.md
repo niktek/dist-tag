@@ -1,5 +1,11 @@
 # create-lkjh
 
+## 0.2.1
+
+### Patch Changes
+
+- cf33027: different strat
+
 ## 0.2.0
 
 ### Minor Changes
