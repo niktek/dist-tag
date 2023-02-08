@@ -35,7 +35,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Packaging
+        if: steps.changesets.outputs.hasChangesets == 'false'
         run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
           pnpm package
           cd package
           pnpm pack
