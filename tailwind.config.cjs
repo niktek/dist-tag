@@ -1,9 +1,17 @@
-/** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
 	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}', require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				sans: ['Inter', ...defaultTheme.fontFamily.sans]
+			}
+		}
 	},
-	plugins: [...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()],
-}
+	plugins: [
+		require('@tailwindcss/forms'),
+		...require('./src/lib/tailwind/skeleton.cjs')({ intellisense: false })
+	]
+};
