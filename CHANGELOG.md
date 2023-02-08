@@ -1,5 +1,11 @@
 # create-lkjh
 
+## 0.2.0
+
+### Minor Changes
+
+- e5dfb1f: For all the minor things in your life
+
 ## 0.1.25
 
 ### Patch Changes
