@@ -2,7 +2,7 @@ name: Publish Skeleton
 on:
   push:
     branches:
-      - dev
+      - trunk
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
@@ -12,21 +12,26 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
       - uses: pnpm/action-setup@v2
         with:
           version: 7
-
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: "pnpm"
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Packaging Dev
+      - name: Create release Pull Request or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm version:dev
+          commit: "ci(changesets): version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Packaging
+        if: steps.changesets.outputs.hasChangesets == 'false'
         run: |
-          npm version --preid dev --git-tag-version false prerelease
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF

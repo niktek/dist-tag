@@ -16,6 +16,7 @@
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
 		"build:jss": "node ./scripts/generate-jss.js",
+		"version:dev": "changeset version --no-git-tag --snapshot dev",
 		"version:trunk": "changeset version",
 		"cs": "changeset"
 	},
