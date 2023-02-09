@@ -18,7 +18,8 @@
 		"build:jss": "node ./scripts/generate-jss.js",
 		"ci:dev": "changeset version --no-git-tag --snapshot dev",
 		"ci:trunk": "changeset version",
-		"cs": "changeset"
+		"cs": "changeset",
+		"precommit": "pnpm format && pnpm lint"
 	},
 	"repository": {
 		"type": "git",
