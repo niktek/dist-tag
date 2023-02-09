@@ -30,7 +30,7 @@ jobs:
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
-          npm package
+          pnpm package
           cd package
           npm publish --tag dev
         env:
