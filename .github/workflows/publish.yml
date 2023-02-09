@@ -30,15 +30,11 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Packaging
         run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
           pnpm package
       - name: Create release Pull Request or Publish to NPM
         id: changesets
         uses: changesets/action@v1
         with:
-          cwd: package
           publish: pnpm ci:trunk
           commit: "ci(changesets): version packages"
         env:
