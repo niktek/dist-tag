@@ -2,7 +2,7 @@ name: Publish Skeleton
 on:
   push:
     branches:
-      - trunk
+      - dev
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
@@ -29,18 +29,16 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm version
-          commit: "ci(changesets): version packages"
+          publish: pnpm version:dev
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Packaging
-        if: steps.changesets.outputs.hasChangesets == 'false'
+      - name: Packaging Dev
         run: |
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
           pnpm package
           cd package
-          npm publish
+          npm publish --tag dev
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
