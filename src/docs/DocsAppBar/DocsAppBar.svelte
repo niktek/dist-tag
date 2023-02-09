@@ -48,7 +48,7 @@
 		};
 		modalStore.trigger(d);
 	}
-
+	
 	// Keyboard Shortcut (CTRL/⌘+K) to Focus Search
 	function onWindowKeydown(e: KeyboardEvent): void {
 		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
