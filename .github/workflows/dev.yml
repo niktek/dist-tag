@@ -28,12 +28,10 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm version:dev
-          commit: "ci(changesets): version packages"
+          version: pnpm ci:dev
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Packaging
-        if: steps.changesets.outputs.hasChangesets == 'false'
         run: |
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
