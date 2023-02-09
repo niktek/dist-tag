@@ -17,7 +17,7 @@
 		"coverage": "vitest run --coverage",
 		"build:jss": "node ./scripts/generate-jss.js",
 		"ci:dev": "changeset version --no-git-tag --snapshot dev",
-		"ci:trunk": "changeset version",
+		"ci:trunk": "changeset publish",
 		"cs": "changeset"
 	},
 	"repository": {

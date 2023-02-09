@@ -4,12 +4,12 @@ on:
     branches:
       - trunk
     paths:
-      - .changeset
+      - '.changeset'
   pull_request:
     branches:
       - trunk
     paths:
-      - .changeset
+      - '.changeset'
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
@@ -32,7 +32,8 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          version: pnpm ci:trunk
+          cwd: package
+          publish: pnpm ci:trunk
           commit: "ci(changesets): version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
