@@ -1,5 +1,11 @@
 # create-lkjh
 
+## 0.0.0-dev-20230209161948
+
+### Patch Changes
+
+- eef8eb5: itsy bitsy pathy
+
 ## 0.3.1
 
 ### Patch Changes
