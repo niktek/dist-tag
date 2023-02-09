@@ -1,5 +1,21 @@
 # create-lkjh
 
+## 0.3.0
+
+### Minor Changes
+
+- ac054a1: A minor change
+
+  This is the first minor change
+
+  # but do not i can add a fully verbose description in markdown
+
+### Patch Changes
+
+- d8920d9: the patchiest of patches
+
+  This should all end up in the changelog
+
 ## 0.2.3
 
 ### Patch Changes
