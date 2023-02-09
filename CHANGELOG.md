@@ -1,5 +1,11 @@
 # create-lkjh
 
+## 0.3.1
+
+### Patch Changes
+
+- 5e06dca: fix up workflows
+
 ## 0.3.0
 
 ### Minor Changes
