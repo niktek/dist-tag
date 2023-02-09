@@ -1,5 +1,15 @@
 # create-lkjh
 
+## 0.3.3
+
+### Patch Changes
+
+- d8e4576: change paths to be single quote strings
+- 38fb24b: retrying publish
+- a910349: new add to changeset dir
+- bbb6802: tweak to build script
+- ac672e0: try again
+
 ## 0.3.2
 
 ### Patch Changes
