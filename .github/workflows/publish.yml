@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - trunk
+  pull_request:
+    branches:
+      - trunk
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
